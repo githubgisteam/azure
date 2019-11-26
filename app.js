@@ -93,7 +93,9 @@ app.post('/azure', function (req, response) {
         switch (req.body.queryResult.intent.displayName) {			
            case "createresourceonazure":	
 				var getResourceName = req.body.queryResult.parameters.resourcename;
+				console.log("i am here resource name", getResourceName);
                 var resourceGroupName = getResourceName.toString();
+					console.log("hiiii", getResourceName);
                 createResourceGroup(resourceGroupName, function (err, result) {
                     if (err) {
                         console.log("error in creating resource group",err);
