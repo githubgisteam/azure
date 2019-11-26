@@ -33,7 +33,7 @@ var server = app.listen(3000, function () {
 })*/
 
 /**pass incoming webhook to send messege to slack from azure */
-var MY_SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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";
+var MY_SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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";
 var slack = require('slack-notify')(MY_SLACK_WEBHOOK_URL);
 
 
@@ -92,10 +92,8 @@ app.post('/azure', function (req, response) {
 		console.log("Display name ", req.body.queryResult.intent.displayName);
         switch (req.body.queryResult.intent.displayName) {			
            case "createresourceonazure":	
-				var getResourceName = req.body.queryResult.parameters.resourcename;
-				console.log("i am here resource name", getResourceName);
-                var resourceGroupName = getResourceName.toString();
-					console.log("hiiii", getResourceName);
+				var getResourceName = req.body.queryResult.parameters.resourcename;				
+                var resourceGroupName = getResourceName.toString();			
                 createResourceGroup(resourceGroupName, function (err, result) {
                     if (err) {
                         console.log("error in creating resource group",err);
