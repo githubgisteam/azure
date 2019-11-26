@@ -80,7 +80,7 @@ var osDiskName = _generateRandomId('testosdisk', randomIds);
 //     API for connection from azure,servicenow ticket and leave management system //
 ///////////////////////////////////////////
 app.post('/azure', function (req, response) {
-
+ console.log("hi i am here ");
     msRestAzure.loginWithServicePrincipalSecret(clientId, secret, domain, function (err, credentials, subscriptions) {
         if (err) return console.log(err);
         //console.log(credentials)
